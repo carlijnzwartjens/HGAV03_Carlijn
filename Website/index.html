@@ -8,21 +8,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     
     <script src="nieuwzeeland.js"></script>
+
+    <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
+    <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+
+     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+
     
 </head>
 <body>
     <div class="container">
         <div class="navbar">
         <img src="afbeeldingen/logo.png" class="logo">
-        <nav>
-            <ul>
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="vulkanisme.html">VULKANISME</a></li>
-                <li><a href="maori.html">MAORI</a></li>
-                <li><a href="filmlocaties.html">FILMLOCATIES</a></li>
-                <li><a href="bezienswaardigheden.html">BEZIENSWAARDIGHEDEN</a></li>
-            </ul>
-            </nav>
         </div>
         
         <div class="row">
@@ -55,6 +58,30 @@
         
     </div>
     
+    <div id='map' style='width: 600px; height: 500px;'></div>
+
+<script>
+var map = new maplibregl.Map({
+container: 'map',
+style: 'https://demotiles.maplibre.org/style.json', // stylesheet location
+center: [175, -40], // starting position [lng, lat]
+zoom: 4 // starting zoom
+});
+
+var marker = new maplibregl.Marker()
+    .setLngLat([175, -40])
+    .addTo(map);
+    </script>
+</script>
+
+<div id='map' style='width: 600px; height: 500px;'></div>
+
+<script>
+    var map = L.map('map', {center: [44.8, -93.7],zoom: 12});
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map)
+    ;
+
+</script>
     
 </body>
 </html>
