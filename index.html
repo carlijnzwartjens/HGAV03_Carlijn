@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="style.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    
-    <script src="nieuwzeeland.js"></script>
 
     <script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script>
     <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
@@ -16,11 +14,20 @@
      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
      crossorigin=""/>
 
-     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
      crossorigin=""></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/css/ol.css" type="text/css">
     
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/ol-mapbox-style@6.1.4/dist/olms.js"></script>
+
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/latest/maptiler-sdk.umd.min.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/latest/maptiler-sdk.css" rel="stylesheet" />
+
+
 </head>
 <body>
     <div class="container">
@@ -31,57 +38,91 @@
         <div class="row">
             <div class="col">
                 <h1>Nieuw-Zeeland</h1>
-                <p>Nieuw-Zeeland is een land gelegen in Oceanië aan de andere kant van de wereld. Het is een erg dunbevolkt land met veel onbewoonde natuurgebieden. Op deze website kan je meer informatie vinden over het land; zowel op het gebied van natuur als cultuur</p>
+                <p>Nieuw-Zeeland is een land gelegen in Oceanië aan de andere kant van de wereld. Het is een erg dunbevolkt land met veel onbewoonde natuurgebieden. Op deze website kan je meer informatie vinden over het land; de onderwerpen die aanbod komen zijn hiernaast te zien.</p>
                 <button>Ontdenk meer</button>
 
             </div>
             <div class="col">
                 <div class="card card1">
                     <h5>Vulkanisme</h5>
-                    <p>nieuw zeeland bevat veel vulkanisme</p>
+                    <p>Ontdek alles over vulkanisme</p>
                 </div>
                 <div class="card card2">
                     <h5>Maori</h5>
-                    <p>nieuw zeeland bevat veel vulkanisme</p>
+                    <p>Maori is de inheemse bevolking</p>
                 </div>
                 <div class="card card3">
                     <h5>Filmlocaties</h5>
-                    <p>nieuw zeeland bevat veel vulkanisme</p>
+                    <p>Er zijn veel bekende films opgenomen</p>
                 </div>
                 <div class="card card4">
                     <h5>Bezienswaardigheden</h5>
-                    <p>nieuw zeeland bevat veel vulkanisme</p>
+                    <p>Wat is er allemaal te doen?</p>
                 </div>
                 
             </div>
         </div>
-        
     </div>
-    
-    <div id='map' style='width: 600px; height: 500px;'></div>
 
-<script>
-var map = new maplibregl.Map({
-container: 'map',
-style: 'https://demotiles.maplibre.org/style.json', // stylesheet location
-center: [175, -40], // starting position [lng, lat]
-zoom: 4 // starting zoom
-});
+<section class="dataenkaarten">
 
-var marker = new maplibregl.Marker()
-    .setLngLat([175, -40])
-    .addTo(map);
+<div class="row">
+     <div id='maplibre'></div>
+        <div id="maplibretekst" class="about-col"></div>
+        <p4>Nieuw-Zeeland is een land in het zuidwesten van de Stille Oceaan, <br> bestaande uit twee hoofdeilanden en verschillende kleinere. Het staat bekend <br>om zijn prachtige landschappen, van besneeuwde bergen tot ongerepte stranden en <br>geothermische wonderen. Het land staat ook bekend om zijn unieke flora en fauna,<br> waaronder de iconische kiwi. De economie van Nieuw-Zeeland leunt zwaar op landbouw,<br> toerisme en technologie. De hoofdstad is Wellington, terwijl Auckland de grootste stad is.<br> De inheemse Maori-cultuur is een integraal onderdeel van de identiteit en geschiedenis <br> van het land. Nieuw-Zeeland heeft een hoge levensstandaard, uitstekende gezondheidszorg <br> en onderwijssystemen, en een diverse en multiculturele samenleving.</p4>
+</div>
+
+<div class="row">   
+        <div id="populatiekaartnieuwzeelandtekst" class="about-col"></div>
+        <p4>De populatie van Nieuw-Zeeland bedraagt momenteel ongeveer 5,1 miljoen <br> mensen en groeit gestaag. Het land heeft een bijzonder diverse bevolking,<br>  bestaande uit Maori, Europese, Aziatische en andere etnische groepen. De gemiddelde<br>  levensverwachting is zeer hoog, met ongeveer 83 jaar voor vrouwen en 80 jaar <br> voor mannen. Naar schatting 1 op de 3 mensen woont in de grootstedelijke regio van<br>  Auckland, terwijl de rest van het land over meerdere grote en kleine steden verspreid is.<br>  Nieuw-Zeeland is bekend om zijn ongerepte natuur, outdoor<br>  activiteiten en vriendelijke bevolking.</p4>
+    <div id='populatiekaartnieuwzeeland' class="flourish-embed flourish-chart" data-src="visualisation/13411740"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+</div>
+
+<div class="row">
+    <iframe title="Migratie Nieuw-Zeeland" aria-label="Interactive line chart" id="datawrappermigratie" src="https://datawrapper.dwcdn.net/XXH4Q/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 45% !important; border: none;" height="200" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
     </script>
-</script>
+        <div id="migratienieuwzeelandtekst" class="about-col"></div>
+        <p4>Nieuw-Zeeland is een populaire bestemming voor mensen die willen migreren<br> vanwege de hoge levensstandaard, het prachtige landschap en de sterke economie.<br> Het land heeft een relatief eenvoudige immigratieprocedure die voorrang geeft aan<br> geschoolde werknemers en mensen met familiebanden. De laatste jaren is er <br>bijzondere aandacht voor het aantrekken van werknemers in de gezondheidszorg en<br> de bouwsector om de lacunes in de plaatselijke beroepsbevolking op te vullen.</p4>
+</div>
 
-<div id='map' style='width: 600px; height: 500px;'></div>
+<div class="row">
+        <div id="mapleaflettekst" class="about-col"></div>
+        <p4>Hiernaast is een kaart te zien van een vijftal vulkanen in het land. <br>Nieuw-Zeeland heeft namelijk een uitgebreide geschiedenis van vulkanische activiteit <br>vanwege de aanwezigheid van tektonische platen. De meest bekende plek voor<br> vulkanisme in Nieuw-Zeeland is het Tongariro Nationaal Park, waar de actieve vulkanen<br> Mount Ruapehu, Mount Tongariro en Mount Ngauruhoe te vinden zijn. In november <br>2019 barstte de vulkaan White Island (Whakaari) uit en veroorzaakte een <br>dodelijke ramp met toeristen. Dit tragische incident benadrukte de gevaren van<br> vulkanische activiteit en het belang van<br> monitoring en waarschuwingssystemen in vulkanische gebieden.</p4>  
+    <div id='mapleaflet'></div>
+</div>
 
-<script>
-    var map = L.map('map', {center: [44.8, -93.7],zoom: 12});
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map)
-    ;
+<div class="row">
+    <div id="mapopenlayers" style='width: 600px; height: 500px;'></div>
+        <div id="openlayerstekst" class="about-col"></div>
+        <p4>De Maori zijn de inheemse bevolking van Nieuw-Zeeland, bekend om hun rijke<br> cultuur en tradities. Ze kwamen ongeveer 1000 jaar geleden vanuit Polynesië naar <br>Nieuw-Zeeland en hebben een unieke taal, kunst en spirituele overtuigingen.<br> Eeuwenlang leefden ze van land en zee, en hun manier van leven werd sterk beïnvloed door<br> de komst van de Europeanen in de 18e eeuw. Tegenwoordig maakt de Maori ongeveer <br>15% uit van de totale bevolking van Nieuw-Zeeland en hun cultuur wordt <br>in het hele land gevierd en erkend, onder meer in het volkslied en door het<br> regeringsbeleid voor de revitalisering en het behoud van de taal.</p4>  
+</div>
 
-</script>
-    
+<div class="row">
+        <div id="wandelrouteskaarttekst" class="about-col"></div>
+        <p4>Nieuw-Zeeland heeft veel te bieden aan reizigers. De belangrijkste <br> bezienswaardigheden zijn de spectaculaire natuurlijke landschappen, waaronder de bergachtige<br> regio's van het Zuidereiland, de gletsjers van Fox en Franz Josef en het <br>geothermische gebied Rotorua op het Noordereiland. Andere populaire attracties zijn het<br> Tongariro National Park, de Milford Sound en het Abel Tasman National Park. Voor<br> de cultuurliefhebber zijn er ook tal van musea, kunstgaleries en historische<br> plaatsen, zoals de Waitangi Treaty Grounds, waar de overeenkomst tussen <br>de Maori en de Britten werd ondertekend. Op de kaart hiernaast zijn dan ook alle<br> wandelroutes gevisualiseerd in de kaart.</p4>  
+    <iframe id="wandelrouteskaart" width="600" height="500" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" 
+    src="https://arcgis.com/apps/Embed/index.html?webmap=48a5e364eb05489f9df73cc9022a6a88&extent=162.0507,-46.6406,180,-36.0565&zoom=true&previewImage=false&scale=true&legend=true&disable_scroll=true&theme=light"></iframe>
+</div>
+
+<div class="row">
+    <div id="mapmaptiler" style='width: 600px; height: 500px;'></div>
+        <div id="mapmaptilertekst" class="about-col"></div>
+        <p4>Nieuw-Zeeland heeft enkele van de prachtigste en meest verbluffende <br> filmlocaties ter wereld. Het land heeft gediend als decor voor vele bekende films, waaronder de<br> Lord of the Rings- en The Hobbit-trilogieën, King Kong, Avatar en meer.<br>  Sommige van de populairste filmlocaties in Nieuw-Zeeland zijn de Hobbiton Movie Set<br>  in Matamata, Mount Victoria in Wellington en de Waitomo Caves in Waikato. Andere<br>  locaties, zoals de Remarkables-bergketen en de Franz Josef-gletsjer, bieden <br> adembenemende landschappen die vaak als achtergrond dienen voor films.</p4>  
+</div>
+
+
+</section>
+
+
+
+
+<section class="footer">
+    <h4>Over mij</h4>
+    <p>Mijn naam is Carlijn en ik ben momenteel student op de Aeres Hogeschool Almere op de opleiding Geo Media en Design.<br>We zijn veel bezig met geografische thema's, waaronder dus dit project.</p>
+    <p>@carlijnzwartjens @2023 @aereshogeschool</p>
+</section>
+
+<script src="nieuwzeeland.js"></script>
+
 </body>
 </html>

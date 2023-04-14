@@ -1,3 +1,5 @@
+/*----- begin scherm -----*/
+
 *{
    margin: 0;
    padding: 0;
@@ -101,9 +103,112 @@ h5{
     font-size: 8px;
 }
 
-#map { height: 180px; }
+@import "node_modules/ol/ol.css";
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+/*----- kaarten en visualisaties -----*/
 
 
+#maplibre{
+    width: 600px;
+    height: 500px;
+    margin-left: 80px;
+    margin-top: 80px;
+}
+
+#maplibretekst{
+    padding-right: 80px;
+}
 
 
+#populatiekaartnieuwzeeland{
+    width: 600px;
+    height: 500px;
+    margin-top: 40px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
 
+#populatiekaartnieuwzeelandtekst{
+    padding-left: 80px;
+}
+
+#datawrappermigratie{
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+#migratienieuwzeelandtekst{
+    padding-right: 80px;
+    margin-top: 40px;
+}
+
+#mapleaflet{
+    width: 600px;
+    height: 500px;
+    margin-top: 40px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+#mapleaflettekst{
+    padding-left: 80px;
+}
+
+#mapopenlayers{
+    width: 600px;
+    height: 500px;
+    margin-left: 80px;
+    margin-top: 80px;
+}
+
+#openlayerstekst{
+    padding-right: 80px;
+}
+
+#wandelrouteskaart{
+    width: 600px;
+    height: 500px;
+    margin-top: 40px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+#wandelrouteskaarttekst{
+    padding-left: 80px;
+}
+
+#mapmaptiler{
+    width: 600px;
+    height: 500px;
+    margin-left: 80px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+#mapmaptilertekst{
+    padding-right: 80px;
+}
+
+/*----- footer -----*/
+
+.footer{
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.footer h4{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.footer{
+    background-color: #4f311e5e;
+}
